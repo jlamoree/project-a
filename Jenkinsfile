@@ -11,7 +11,7 @@ pipeline {
         stage("Test") {
             agent { label "builder && kermit" }
             steps {
-                echo "test_runner -vvv -x ."
+                echo "new_fancy_test_runner -vvv -x ."
             }
         }
         stage("Deploy") {
