@@ -5,13 +5,13 @@ pipeline {
         stage("Build") {
             agent { label "builder && gonzo" }
             steps {
-                echo "building all the things"
+                sh build.sh
             }
         }
         stage("Test") {
             agent { label "builder && kermit" }
             steps {
-                echo "test_runner -vvv -x ."
+                echo "new_fancy_test_runner -vvv -x ."
             }
         }
         stage("Deploy") {
