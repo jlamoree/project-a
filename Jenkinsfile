@@ -1,3 +1,5 @@
+#!groovy
+
 pipeline {
     agent none
 
@@ -5,7 +7,7 @@ pipeline {
         stage("Build") {
             agent { label "builder && gonzo" }
             steps {
-                sh build.sh
+                sh "./build.sh"
             }
         }
         stage("Test") {
