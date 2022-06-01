@@ -5,7 +5,7 @@ pipeline {
         stage("Build") {
             agent { label "builder && gonzo" }
             steps {
-                echo "building all the things"
+                sh build.sh
             }
         }
         stage("Test") {
