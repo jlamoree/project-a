@@ -13,7 +13,7 @@ pipeline {
         stage("Test") {
             agent { label "builder && kermit" }
             steps {
-                echo "new_fancy_test_runner -vvv -x ."
+                sh "./tests/run-tests.sh"
             }
         }
         stage("Deploy") {
