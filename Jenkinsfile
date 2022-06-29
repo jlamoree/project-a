@@ -3,7 +3,7 @@
 pipeline {
     agent none
     environment {
-        project_name = "project_" + new Date().time
+        project_name = "project_${new Date().time}"
     }
     stages {
         stage("Build") {
