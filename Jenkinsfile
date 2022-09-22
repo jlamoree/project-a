@@ -10,11 +10,9 @@ pipeline {
             agent { label "builder && gonzo" }
             steps {
                 sh """
-                    export jenkins_uid=\$(id -u)
-                    export jenkins_gid=\$(id -g)
                     ./build.sh
                     echo Project Name: ${project_name}
-                    echo '\$jenkins_gid:|$jenkins_gid'
+                    echo '\$UID:\$GID'
                 """
             }
         }
