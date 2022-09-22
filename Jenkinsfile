@@ -12,7 +12,7 @@ pipeline {
                 sh """
                     ./build.sh
                     echo Project Name: ${project_name}
-                    echo '\$UID:\$GID'
+                    echo \"user:group is \$UID:\$GID\"
                 """
             }
         }
