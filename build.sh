@@ -8,3 +8,5 @@ if [ -d "project-b" ]; then
 else
   echo "No such thing as project-b"
 fi
+
+echo "Hi. I can see the Jenkins info: $JENKINS_UID:$JENKINS_GID"

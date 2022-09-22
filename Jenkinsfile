@@ -10,9 +10,11 @@ pipeline {
             agent { label "builder && gonzo" }
             steps {
                 sh """
+                    export JENKINS_UID=\$(id -u)
+                    export JENKINS_GID=\$(id -g)
+                    echo \"Docker User: \$JENKINS_UID:\$JENKINS_GID\"
                     ./build.sh
                     echo Project Name: ${project_name}
-                    echo \"user:group is \$UID:\$GID\"
                 """
             }
         }
