@@ -10,7 +10,7 @@ pipeline {
             agent { label "builder && gonzo" }
             steps {
                 sh """
-                    echo ${env.UID}
+                    echo ${UID}
                     ./build.sh
                     echo Project Name: ${project_name}
                 """
