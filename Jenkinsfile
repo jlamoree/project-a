@@ -10,7 +10,9 @@ pipeline {
             agent { label "builder && gonzo" }
             steps {
                 sh """
-                    echo ${UID}
+                    export UID=\$(id -u)
+                    export GID=\$(id -g)
+                    echo "\$UID \$GID"
                     ./build.sh
                     echo Project Name: ${project_name}
                 """
