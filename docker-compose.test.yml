@@ -1,0 +1,15 @@
+version: '3'
+services:
+  tests:
+    build:
+      context: .
+      dockerfile: Dockerfile-unittest
+    command: bash .docker_unittest.sh
+    env_file: .dockerenv
+    environment:
+      TESTING: 'true'
+    depends_on:
+      - postgres
+  postgres:
+    restart: always
+    image: postgres:11.3

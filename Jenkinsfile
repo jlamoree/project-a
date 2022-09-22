@@ -9,8 +9,11 @@ pipeline {
         stage("Build") {
             agent { label "builder && gonzo" }
             steps {
-                sh "./build.sh"
-                sh "echo Project Name: ${project_name}"
+                sh """
+                    echo ${env.UID}
+                    ./build.sh
+                    echo Project Name: ${project_name}
+                """
             }
         }
         stage("Test") {
