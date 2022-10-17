@@ -23,6 +23,20 @@ pipeline {
             steps {
                 sh "./tests/run-tests.sh"
                 sh "echo Project Name: ${project_name}"
+
+                cobertura autoUpdateHealth: false,
+                    autoUpdateStability: false,
+                    coberturaReportFile: 'coverage.xml',
+                    conditionalCoverageTargets: '70, 0, 0',
+                    enableNewApi: true,
+                    failUnhealthy: false,
+                    failUnstable: false,
+                    lineCoverageTargets: '80, 0, 0',
+                    maxNumberOfBuilds: 0,
+                    methodCoverageTargets: '80, 0, 0',
+                    onlyStable: false,
+                    sourceEncoding: 'UTF-8',
+                    zoomCoverageChart: false
             }
         }
         stage("Deploy") {
