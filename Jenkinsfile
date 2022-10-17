@@ -35,7 +35,6 @@ pipeline {
                     maxNumberOfBuilds: 0,
                     methodCoverageTargets: '80, 0, 0',
                     onlyStable: false,
-                    sourceEncoding: 'UTF-8',
                     zoomCoverageChart: false
             }
         }
