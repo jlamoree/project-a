@@ -7,14 +7,17 @@ pipeline {
     }
     stages {
         stage("Quote Style Demo") {
-            sh """
-                echo "Inside a Groovy string template."
-                echo "Project Name: ${project_name}"
-            """
-            sh '''
-                echo "Inside a Groovy static string."
-                echo "Project Name: ${project_name}"
-            '''
+            agent any
+            steps {
+                sh """
+                    echo "Inside a Groovy string template."
+                    echo "Project Name: ${project_name}"
+                """
+                sh '''
+                    echo "Inside a Groovy static string."
+                    echo "Project Name: ${project_name}"
+                '''
+            }
         }
 
 
