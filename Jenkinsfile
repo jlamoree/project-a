@@ -6,6 +6,18 @@ pipeline {
         project_name = "project_${new Date().time}"
     }
     stages {
+        stage("Quote Style Demo") {
+            sh """
+                echo "Inside a Groovy string template."
+                echo "Project Name: ${project_name}"
+            """
+            sh '''
+                echo "Inside a Groovy static string."
+                echo "Project Name: ${project_name}"
+            '''
+        }
+
+
         stage("Build") {
             agent { label "builder && gonzo" }
             steps {
